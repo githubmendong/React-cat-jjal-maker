@@ -1,95 +1,116 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>고양이 가라사대</title>
 </head>
-
+<style>
+    body {
+        text-align: center;
+    }
+    .main-card button {
+        position: relative;
+        left: -45px;
+        bottom: 15px;
+    }
+    .favorites {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .favorites img {
+        width: 150px;
+    }
+</style>
 <body>
-    <div id="app"></div>
+<div id="app"></div>
 
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script
+        src="https://unpkg.com/react@17/umd/react.development.js"
+        crossorigin
+></script>
+<script
+        src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        crossorigin
+></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
 
-    <script type="text/babel" data-presets="env,react">
-        console.log("야옹");
+    const CAT1 ="https://cataas.com/cat";
+    const CAT2 ="https://cataas.com/cat/cute";
+    const CAT3 ="https://cataas.com/cat/gif";
 
-        const title = <h1>1번째 고양이 가라사대2</h1>;
+    console.log("야옹");
 
-        const form = (
-            <form>
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="영어 대사를 입력해주세요"
-                />
-                <button type="submit">생성</button>
-            </form>
-        );
+    const title = <h1>1번째 고양이 가라사대2</h1>;
 
-        const catItem = (
+    const form = (
+        <form>
+            <input
+                type="text"
+                name="name"
+                placeholder="영어 대사를 입력해주세요"
+            />
+            <button type="submit">생성</button>
+        </form>
+    );
+
+
+    function CatItem(props){
+        console.log(props);
+        return(
             <li>
-                <img src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react" />
-            </li>
-        );
-
-        const favorites = (
-            <ul className="favorites">
-                {catItem}
-                {catItem}
-                {catItem}
-            </ul>
-        );
-
-        const mainCard = (
-            <div className="main-card">
+                {props.title}
                 <img
-                    src="https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react"
-                    alt="고양이"
-                    width="400"
-                />
-                <button>🤍</button>
-            </div>
-        );
+                    src={props.img}/>
+            </li>
+        )
+    }
 
-        const app = (
-            <div>
-                {title}
-                {form}
-                {mainCard}
-                {favorites}
-            </div>
-        );
+    const catItem = (
+        <li>
+            <img src="https://cataas.com/cat" />
+        </li>
+    );
 
-        function sayHello(name){
-            return"안녕+" + name;
-        }
+    function Favorites(){
+        return(
+            <ul className="favorites">
+                <CatItem img={CAT1} title={"cat1"} />
+                <CatItem img={CAT2} title={"cat2"} />
+                <CatItem img={CAT3} title={"cat3"} />
 
-        sayHello('동헌')
-        sayHello(' 여러분')
+            </ul>
+        )
+    }
 
-        function Card(title, description){
-            return(
-                <div>
-                    <h2>{title}</h2>
-                    {description}
-                </div>
-            );
-        }
+    const mainCard = (
+        <div class="main-card">
+            <img
+                src="https://cataas.com/cat"
+                alt="고양이"
+                width="400"
+            />
+            <button>🤍</button>
+        </div>
+    );
 
-        <Card title="리액트 짱" description = "리액트입니다."/>
-        <Card title="리액트 싫어요" description = "리액트입니다.2"/>
+    const app = (
+        <div>
+            {title}
+            {form}
+            {mainCard}
+            <favorites/>
+        </div>
+    );
 
-        const 여기다가그려 = document.querySelector("#app");
+    const 여기다가그려 = document.querySelector("#app");
 
-        ReactDOM.createRoot(여기다가그려).render(app);
-
-
-    </script>
+    ReactDOM.render(app, 여기다가그려);
+</script>
 </body>
-
 </html>
