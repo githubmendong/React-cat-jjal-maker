@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>고양이 가라사대</title>
 </head>
 <style>
     body {
         text-align: center;
     }
+
     .main-card button {
         position: relative;
         left: -45px;
         bottom: 15px;
     }
+
     .favorites {
         list-style: none;
         display: flex;
@@ -22,6 +24,7 @@
         flex-wrap: wrap;
         gap: 15px;
     }
+
     .favorites img {
         width: 150px;
     }
@@ -30,39 +33,45 @@
 <div id="app"></div>
 
 <script
-        src="https://unpkg.com/react@17/umd/react.development.js"
         crossorigin
+        src="https://unpkg.com/react@17/umd/react.development.js"
 ></script>
 <script
-        src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
         crossorigin
+        src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
 ></script>
 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 <script type="text/babel">
 
-    const CAT1 ="https://cataas.com/cat";
-    const CAT2 ="https://cataas.com/cat/cute";
-    const CAT3 ="https://cataas.com/cat/gif";
+    const CAT1 = "https://cataas.com/cat";
+    const CAT2 = "https://cataas.com/cat/cute";
+    const CAT3 = "https://cataas.com/cat/gif";
 
     console.log("야옹");
 
-    const title = <h1>1번째 고양이 가라사대2</h1>;
+    const Title = (props) => {
+        return (
+            <h1>{props.children}</h1>
+        )
+    }
 
-    const form = (
-        <form>
-            <input
-                type="text"
-                name="name"
-                placeholder="영어 대사를 입력해주세요"
-            />
-            <button type="submit">생성</button>
-        </form>
-    );
+    const Form = () => {
+        return (
+            <form>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="영어 대사를 입력해주세요"
+                />
+                <button type="submit">생성</button>
+            </form>
+        )
+    };
 
 
-    function CatItem(props){
+    function CatItem(props) {
         console.log(props);
-        return(
+        return (
             <li>
                 {props.title}
                 <img
@@ -73,40 +82,45 @@
 
     const catItem = (
         <li>
-            <img src="https://cataas.com/cat" />
+            <img src="https://cataas.com/cat"/>
         </li>
     );
 
-    function Favorites(){
-        return(
+    function Favorites() {
+        return (
             <ul className="favorites">
-                <CatItem img={CAT1} title={"cat1"} />
-                <CatItem img={CAT2} title={"cat2"} />
-                <CatItem img={CAT3} title={"cat3"} />
+                <CatItem img={CAT1} title={"cat1"}/>
+                <CatItem img={CAT2} title={"cat2"}/>
+                <CatItem img={CAT3} title={"cat3"}/>
 
             </ul>
         )
     }
 
-    const mainCard = (
-        <div class="main-card">
-            <img
-                src="https://cataas.com/cat"
-                alt="고양이"
-                width="400"
-            />
-            <button>🤍</button>
-        </div>
-    );
+
+    const MainCard = ({img}) => {
+        return (
+            <div className="main-card">
+                <img
+                    src={img}
+                    alt="고양이"
+                    width="400"
+                />
+                <button>🤍</button>
+            </div>
+        );
+    };
 
     const app = (
         <div>
-            {title}
-            {form}
-            {mainCard}
-            <favorites/>
+            <Title>공양</Title>
+            <Form/>
+            <MainCard img="https://cataas.com/cat/cute"/>
+            <Favorites/>
         </div>
     );
+
+    // fori
 
     const 여기다가그려 = document.querySelector("#app");
 
