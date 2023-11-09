@@ -25,9 +25,6 @@
         gap: 15px;
     }
 
-    .favorites img {
-        width: 150px;
-    }
 </style>
 <body>
 <div id="app"></div>
@@ -66,16 +63,16 @@
                 <button type="submit">생성</button>
             </form>
         )
-    };
+    }
 
 
-    function CatItem(props) {
-        console.log(props);
+    function CatItem({title, img}) {
+        console.log({img});
         return (
             <li>
-                {props.title}
+                {title}
                 <img
-                    src={props.img}/>
+                    src={img} style={{width : "150px"}}/>
             </li>
         )
     }
