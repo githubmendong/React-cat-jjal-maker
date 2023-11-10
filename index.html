@@ -58,10 +58,22 @@
 
 
     function Favorites() {
+
+        const CAT1 =
+            "https://cataas.com/cat/HSENVDU4ZMqy7KQ0/says/react";
+        const CAT2 =
+            "https://cataas.com/cat/BxqL2EjFmtxDkAm2/says/inflearn";
+        const CAT3 =
+            "https://cataas.com/cat/18MD6byVC1yKGpXp/says/JavaScript";
+
+        const cats = [CAT1, CAT2, CAT3];
+
         return (
             <ul className="favorites">
-                <CatItem img="https://cataas.com/cat/BxqL2EjFmtxDkAm2/says/inflearn" />
-                <CatItem img="https://cataas.com/cat/18MD6byVC1yKGpXp/says/JavaScript" />
+                {cats.map((cat) =>
+                    <CatItem img={cat} key={cat} />
+                )}
+
             </ul>
         );
     }
@@ -103,7 +115,6 @@
             "https://cataas.com/cat/18MD6byVC1yKGpXp/says/JavaScript";
 
         const catImages = [CAT1, CAT2, CAT3];
-
         const [counter, setCounter] = React.useState(1);
         const [img, setImg] = React.useState(CAT1);
 
